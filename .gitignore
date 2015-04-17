@@ -31,3 +31,23 @@
 
 # "temporary" build files
 /target
+
+
+*.iml
+*.ipr
+*.iws
+*.sql
+target/
+.idea
+logs/
+out/
+*.tld
+stacktrace.log
+grails-app/conf/LocalConfig.groovy
+CodeNarcReport.html
+cobertura.ser
+s3-plugin-temp/
+*.swp
+*.log
+.idea
+web-app/robots.txt
