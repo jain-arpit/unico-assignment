@@ -4,16 +4,23 @@
 1.  For adding two integers to JMS queue use:
 
  **Request Type :** POST
+
  **Request Url :** http://{baseUrl}/api/rest/push
+
  **Query parameters:** *num1* & *num2*
- **Respose Type**: JSON
+
+ **Response Type**: JSON
+
  **Success Response**: {result: "CREATED"}
 
 2. For Listing queue elements:
 
  **Request Type :** GET
+
  **Request Url :** http://{baseUrl}/api/rest/list
- **Respose Type**: JSON
+
+ **Response Type**: JSON
+
  **Success Response**: {"messages":[9,81,9,81,..]}
 
 3. For SOAP wsdl use below link:
