@@ -14,26 +14,26 @@ class SoapService {
 
     def jmsService
 
-    @WebResult(name = 'gcd')
     @WebMethod(operationName = 'gcd')
     int gcd() {
+        Integer gcd=-1
         List messages=JmsNumber.listOrderById([max:2 ]);
-        Integer num1=messages?.get(0)?.num
-        Integer num2=messages?.get(1)?.num
-        Integer gcd=computeGcd(num1,num2)
-        messages*.delete()
-        jmsService.send(queue:'msg.gcd', gcd)
+        if(messages){
+            Integer num1=messages?.get(0)?.num
+            Integer num2=messages?.get(1)?.num
+            gcd=computeGcd(num1,num2)
+            messages*.delete()
+            jmsService.send(queue:'msg.gcd', gcd)
+        }
         return gcd
     }
 
-    @WebResult(name = 'gcdList')
     @WebMethod(operationName = 'gcdList')
     List<Gcd> gcdList() {
         List<Gcd> messages = Gcd.listOrderById();
         return messages
     }
 
-    @WebResult(name = 'gcdSum')
     @WebMethod(operationName = 'gcdSum')
     int  gcdSum() {
         List<Gcd> messages = Gcd.listOrderById();
